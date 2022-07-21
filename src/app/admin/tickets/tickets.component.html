@@ -1,0 +1,54 @@
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th><th>Sujet</th><th>Date de creation</th><th>STATUS</th><th>Lance par</th><th>Priorite</th><th>choisir un technicien</th>
+            </tr>
+        </thead>
+        <tbody> 
+            <tr *ngFor="let ticket of allTickets  ">
+                
+                <td>{{ticket.id}}</td>
+                <td>{{ticket.description}}</td>
+                <td>{{ticket.createdAt}}</td>
+                <td [ngClass]="ticket.status == 'en cours' ? 'bg-secondary text-white': 'bg-danger text-white'">{{ticket.status}}</td>
+                <td>{{ticket.client.username}}</td>
+                <td *ngIf="ticket.priorite==1" class="bg-danger text-white">
+                    HIGH
+                </td>
+                <td *ngIf="ticket.priorite==2" class="bg-warning text-white">
+                    MEDIUM
+                </td>
+                <td *ngIf="ticket.priorite==3" class="bg-success text-white">
+                    LOW
+                </td>
+                <td>
+                    <select [disabled]="ticket.status=='en cours'" id="technicien" name="technicien"   required>
+                        <option value="" selected disabled hidden>Choose here</option>
+                        <option *ngFor="let technicien of techniciens" [value]="technicien.id">{{technicien.username}</option>
+                         
+                      </select>
+                </td>
+               
+                
+                <td>
+                    <button  [disabled]="ticket.status=='en cours'" class="btn btn-secondary text-white" type="submit" >
+                    Assigner a un technicien
+                    </button>
+                </td>
+                <td>
+                    <button  class="btn btn-primary ">
+                    details sur le ticket et client
+                    </button>
+                </td>
+                <td>
+                    <button  class="btn btn-danger" [disabled]="ticket.status=='en cours'">
+                    <i class="bi bi-trash"></i>
+                    </button>
+                </td>
+
+             
+
+            </tr>
+        </tbody>
+ 
