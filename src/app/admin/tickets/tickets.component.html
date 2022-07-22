@@ -10,8 +10,13 @@
                 
                 <td>{{ticket.id}}</td>
                 <td>{{ticket.description}}</td>
-                <td>{{ticket.createdAt}}</td>
-                <td [ngClass]="ticket.status == 'en cours' ? 'bg-secondary text-white': 'bg-danger text-white'">{{ticket.status}}</td>
+                <td>{{ticket.createdAt|date:' M/d/yy h:mm a'}}</td>
+                
+                <td *ngIf="ticket.status=='en cours'" class="bg-primary text-white">{{ticket.status}}</td>
+                <td *ngIf="ticket.status=='non traite'" class="bg-secondary text-white">{{ticket.status}}</td>
+                <td *ngIf="ticket.status=='resolue'" class="bg-success text-white">{{ticket.status}}</td>
+                <td *ngIf="ticket.status=='non resolue'" class="bg-danger text-white">{{ticket.status}}</td>
+
                 <td>{{ticket.client.username}}</td>
                 <td *ngIf="ticket.priorite==1" class="bg-danger text-white">
                     HIGH
@@ -23,22 +28,28 @@
                     LOW
                 </td>
                 <td>
-                    <select [disabled]="ticket.status=='en cours'" id="technicien" name="technicien"   required>
+                    <select [disabled]="ticket.status!='non traite'" id="technicien" name="technicien" [(ngModel)]="seletedTechnicien"required>
                         <option value="" selected disabled hidden>Choose here</option>
-                        <option *ngFor="let technicien of techniciens" [value]="technicien.id">{{technicien.username}</option>
+                        <option *ngFor="let technicien of techniciens" [value]="technicien.id">{{technicien.username}}</option>
                          
                       </select>
+                       
                 </td>
                
                 
                 <td>
-                    <button  [disabled]="ticket.status=='en cours'" class="btn btn-secondary text-white" type="submit" >
+                    <button  [disabled]="ticket.status!='non traite'" class="btn btn-secondary text-white" type="submit" (click)="creerTraitement(ticket.id)" >
                     Assigner a un technicien
                     </button>
                 </td>
                 <td>
                     <button  class="btn btn-primary ">
-                    details sur le ticket et client
+                    details sur le ticket
+                    </button>
+                </td>
+                <td>
+                    <button  class="btn btn-primary ">
+                    details sur le client
                     </button>
                 </td>
                 <td>

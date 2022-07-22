@@ -13,7 +13,7 @@ import { ClientsComponent } from './admin/clients/clients.component';
 import { AdminsComponent } from './admin/admins/admins.component';
 import { MestraitementsComponent } from './technicien/mestraitements/mestraitements.component';
 import {HttpClientModule} from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { LoginComponent } from './client/login/login.component';
 import { LoginTechnicienComponent } from './technicien/login-technicien/login-technicien.component';
@@ -41,7 +41,8 @@ import { SignupComponent } from './client/signup/signup.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
