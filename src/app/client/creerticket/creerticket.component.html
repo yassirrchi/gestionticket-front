@@ -1,1 +1,23 @@
-<p>creerticket works!</p>
+<div class="container mt-5 p-3 bg-primary">
+    <h1>Lancer un nouveau ticket!</h1>
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label  for="raison" class="form-label">Raison</label>
+        
+       <select id="raison" class="form-control" required>
+        <option>Problem d'access</option>
+        <option>Problem technique</option>
+        <option>demande de donnees d'access</option>
+       </select>
+       
+       
+       
+      <div class="col-md-12">
+        <label for="comments" class="form-label">Message</label>
+        <textarea class="form-control" id="comments" rows="3" required></textarea>
+      </div>
+      <div class="col-md-12">
+        <button type="submit" class="btn btn-success mt-1">Lancer</button>
+      </div>
+    </div>
+</div>
