@@ -6,6 +6,7 @@ import { Ticket } from 'src/app/model/Ticket.model';
 import { TechnicienService } from 'src/app/services/technicien.service';
 import { TicketService } from 'src/app/services/ticket.service';
 import { TraitementService } from 'src/app/services/traitement.service';
+
 @Component({
   selector: 'app-tickets',
   templateUrl: './tickets.component.html',
@@ -15,7 +16,7 @@ export class TicketsComponent implements OnInit {
   allTickets!: Ticket[];
   techniciens!:Technicien[];
   seletedTechnicien!:Number;
-
+ 
   constructor(private ticketService:TicketService ,private router:Router,private techniciensServices:TechnicienService ,private traitementService:TraitementService) { }
 
   ngOnInit(): void {

@@ -1,1 +1,25 @@
-<p>navbar works!</p>
+ 
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+    <div class="wrapper" *ngIf="currentUrl!='/login'">
+        <div class="sidebar">
+            <h2>{{userName}}</h2>
+            <ul *ngIf="userRole=='ADMIN'">
+                <li><a href="#"><i class="fas fa-home"></i>Tickets</a></li>
+                <li><a href="#"><i class="fas fa-user"></i>Traitements</a></li>
+                <li><a href="#"><i class="fas fa-address-card"></i>Admins</a></li>
+                <li><a href="#"><i class="fas fa-project-diagram"></i>Techniciens</a></li>
+                <li><a href="#"><i class="fas fa-blog"></i>Clients</a></li>
+                 
+            </ul>
+            <ul *ngIf="userRole=='CLIENT'">
+                <li><a href="#" routerLink="client/tickets"><i class="fas fa-home" ></i>Mes tickets</a></li>
+                <li><a href="#" routerLink="client/ticket/creer"><i class="fas fa-user" ></i>Lancer un ticket</a></li>
+                 
+            </ul>  
+            <div class="bottom">
+             <div class="btn btn-danger my-3 p-2">LOGOUT</div>
+            </div>
+             
+        </div>
+ 

@@ -1,6 +1,9 @@
+#admin-login-bg{
+    background-color: #8a2be2;
+}
 #client-login-container{
     
-    background:linear-gradient(0deg, rgba(0, 146, 66, 0.642), rgba(0, 124, 37, 0.7)), url("../../../assets/img/3.jpg");
+    background:linear-gradient(0deg,#892be2b5 , #892be2b5), url("../../../assets/img/2.jpg");
      
       /* bottom, image */
       background-size:100% ;  

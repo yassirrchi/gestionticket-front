@@ -1,0 +1,12 @@
+#client-login-container{
+    
+    background:linear-gradient(0deg, rgba(16, 60, 255, 0.642), rgba(14, 98, 255, 0.899)), url("../../../assets/img/1.jpg");
+     
+      /* bottom, image */
+      background-size:100% ;  
+      background-size:cover ;  
+       
+}
+.form-logo{
+    width: 50%;
+}

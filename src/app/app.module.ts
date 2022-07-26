@@ -18,6 +18,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { LoginComponent } from './client/login/login.component';
 import { LoginTechnicienComponent } from './technicien/login-technicien/login-technicien.component';
 import { SignupComponent } from './client/signup/signup.component';
+import { LoginAdminComponent } from './admin/login-admin/login-admin.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { SignupComponent } from './client/signup/signup.component';
     NavbarComponent,
     LoginComponent,
     LoginTechnicienComponent,
-    SignupComponent
+    SignupComponent,
+    LoginAdminComponent
   ],
   imports: [
     BrowserModule,
