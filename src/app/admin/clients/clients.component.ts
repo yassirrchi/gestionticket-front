@@ -31,7 +31,7 @@ export class ClientsComponent implements OnInit {
 
   onsubmit():void{
     this.usersService.createUser(this.createUserForm.controls['username'].value,this.createUserForm.controls['password'].value,this.createUserForm.controls['role'].value).subscribe((data)=>{
-       this.createUserForm.reset();
+      this.createUserForm.setValue({username:"",password:"",role:"CLIENT"})
 
       this.getClients()
      
