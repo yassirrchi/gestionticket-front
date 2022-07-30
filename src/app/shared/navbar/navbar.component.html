@@ -1,15 +1,17 @@
  
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 
-    <div class="wrapper" *ngIf="currentUrl!='/login'">
-        <div class="sidebar">
+    <div class="wrapper" *ngIf="!((currentUrl=='/login')||(currentUrl=='/admin/login')||(currentUrl=='/technicien/login'))">
+        <div class="sidebar"  [ngClass]="{'client-side-bar':userRole=='CLIENT', 'tehnicien-side-bar': userRole=='TECHNICIEN', 'admin-side-bar':userRole=='ADMIN'}"  >
             <h2>{{userName}}</h2>
             <ul *ngIf="userRole=='ADMIN'">
-                <li><a href="#"><i class="fas fa-home"></i>Tickets</a></li>
-                <li><a href="#"><i class="fas fa-user"></i>Traitements</a></li>
-                <li><a href="#"><i class="fas fa-address-card"></i>Admins</a></li>
-                <li><a href="#"><i class="fas fa-project-diagram"></i>Techniciens</a></li>
-                <li><a href="#"><i class="fas fa-blog"></i>Clients</a></li>
+                <a href="#"routerLink="admin/tickets"><li><i class="fas fa-home" ></i>Tickets</li></a>
+                <a href="#"routerLink="admin/traitements"><li><i class="fas fa-home" ></i>Traitements</li></a>
+                <a href="#"routerLink="admin/admins"><li><i class="fas fa-home" ></i>Admins</li></a>
+                <a href="#"routerLink="admin/techniciens"><li><i class="fas fa-home" ></i>Techniciens</li></a>
+                <a href="#"routerLink="admin/clients"><li><i class="fas fa-home" ></i>Clients</li></a>
+                
+                 
                  
             </ul>
             <ul *ngIf="userRole=='CLIENT'">
@@ -17,7 +19,15 @@
                 <li><a href="#" routerLink="client/ticket/creer"><i class="fas fa-user" ></i>Lancer un ticket</a></li>
                  
             </ul>  
-            <div class="bottom">
+            <ul *ngIf="userRole=='TECHNICIEN'">
+                <a href="#"routerLink="technicien/traitements"><li><i class="fas fa-home" ></i>Mes traitements</li></a>
+                 
+                
+                 
+                 
+            </ul>
+            
+            <div class="bottom" (click)="logout()">
              <div class="btn btn-danger my-3 p-2">LOGOUT</div>
             </div>
              

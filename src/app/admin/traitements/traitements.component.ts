@@ -9,7 +9,7 @@ import { TraitementService } from 'src/app/services/traitement.service';
 })
 export class TraitementsComponent implements OnInit {
   allTraitements!:Traitement[];
-  selectedEtat!:string;
+   
 
   constructor(private traitementService :TraitementService) { }
 
@@ -26,13 +26,6 @@ export class TraitementsComponent implements OnInit {
       }
      ) 
   }
-  editTraitementState(traitementId:Number){
-    console.log(traitementId+" "+this.selectedEtat)
-    this.traitementService.EditTraitement(this.selectedEtat,traitementId).subscribe(
-      (res)=>{
-        this.getAllTraitements();
-      }
-     ) 
-  }
+    
 
 }

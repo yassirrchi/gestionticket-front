@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-clients',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./clients.component.css']
 })
 export class ClientsComponent implements OnInit {
+  allClients!:any;
 
-  constructor() { }
+  constructor(private usersService:UsersService) { }
 
   ngOnInit(): void {
+    this.usersService.getAllClients().subscribe(
+      (res)=>{
+        this.allClients=res;
+        console.log(this.allClients)
+      }
+     )
+    
   }
 
 }

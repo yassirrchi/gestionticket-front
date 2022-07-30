@@ -19,6 +19,11 @@ export class AuthService {
     return this.http.post<any>("http://localhost:4443/admin/login",data)
 
   }
+  TechnicienLogin(username:String,password:String):Observable<any>{
+    const data={username,password}
+    return this.http.post<any>("http://localhost:4443/technicien/login",data)
+
+  }
 
 
 }

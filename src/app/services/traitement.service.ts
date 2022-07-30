@@ -24,5 +24,9 @@ export class TraitementService {
      console.log(data)
      return this.http.put("http://localhost:4443/traitement/edit",data)
   }
+  public getTechnicienTraitements(userId:string|null):Observable<Traitement[]>{
+    return this.http.get<Traitement[]>("http://localhost:4443/traitements/technicien/"+userId);
+
+  }
   
 }

@@ -1,3 +1,4 @@
+
  <form [formGroup]="ticketForm" (ngSubmit)="onsubmit()" class="safe-width">
 <div class="container mt-5 p-3 bg-primary">
  
@@ -17,6 +18,10 @@
       <div class="col-md-12">
         <label for="comments" class="form-label">Message</label>
         <textarea class="form-control" id="comments" rows="3" formControlName="message" required></textarea>
+      </div>
+      <div class="col-md-12">
+        <label for="comments" class="form-label">Images</label>
+       <input type="file" class="form-control"/>
       </div>
       <div class="col-md-12">
         <button type="submit" class="btn btn-success mt-1">Lancer</button>

@@ -1,1 +1,34 @@
-<p>admins works!</p>
+<div  class="safe-width">
+    
+    <form [formGroup]="createUserForm" (ngSubmit)="onsubmit()"><div class="d-flex justify-content-center"><input placeholder="username" formControlName="username" class="mx-2"/> <input placeholder="password" formControlName="password" class="mx-2"/><button class="btn btn-success">creer</button></div>
+</form>
+     
+    
+    <table class="table">
+        
+        <thead>
+            
+            <tr>
+                <th>ID</th><th>username</th><th>Created at</th><th>desactiver le compte</th>
+            </tr>
+        </thead>
+        <tbody> 
+            <tr *ngFor="let client of allAdmins  ">
+                
+                 
+                <td  >{{client.id}}   </td>
+                 
+                <td>{{client.username}}<span *ngIf="client.id==adminId"> (vous)</span></td>
+                <td>{{client.createdAt|date:' M/d/yy h:mm a'}}</td> 
+                <td>
+                    <button  class="btn btn-danger " [disabled]="client.id==adminId">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                
+                </td>
+       
+             
+
+            </tr>
+        </tbody>
+ 

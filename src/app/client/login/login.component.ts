@@ -27,7 +27,9 @@ export class LoginComponent implements OnInit {
        console.log(data) 
        this.setSessionData(data.username,data.id,data.role)
        alertify.success("connexion réussie");
+        
        this.router.navigateByUrl("/client/tickets")
+       
         
       
     },

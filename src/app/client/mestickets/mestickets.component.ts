@@ -14,6 +14,7 @@ export class MesticketsComponent implements OnInit {
   constructor(private ticketService:TicketService) { }
 
   ngOnInit(): void {
+     
    this.userId=sessionStorage.getItem("userId");
    this.ticketService.getUserTicket(this.userId).subscribe(
     (res)=>{

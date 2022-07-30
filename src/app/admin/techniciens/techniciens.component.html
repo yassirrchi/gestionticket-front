@@ -1,1 +1,30 @@
-<p>techniciens works!</p>
+<div  class="safe-width">
+    <div class="d-flex justify-content-center"><input placeholder="username" class="mx-2"/> <input placeholder="password" class="mx-2"/><button class="btn btn-success">creer</button></div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th><th>username</th><th>Created at</th><th>desactiver le compte</th>
+            </tr>
+        </thead>
+        <tbody> 
+            <tr *ngFor="let client of allTechniciens  ">
+                
+                 
+                
+                <td>{{client.id}}</td>
+                <td>{{client.username}}</td>
+                <td>{{client.createdAt|date:' M/d/yy h:mm a'}}</td> 
+                <td>
+                    <button  class="btn btn-danger ">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                </td>
+                 
+             
+
+             
+
+            </tr>
+        </tbody>
+ 

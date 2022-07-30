@@ -20,13 +20,29 @@ body{
   
 }
 
+.tehnicien-side-bar{
+    
+  background: #006419;
+   
+}
+.admin-side-bar{
+    
+  background: #343434;
+   
+}
+.client-side-bar{
+    
+  background: #0481ff;
+   
+}
 .wrapper .sidebar{
   width: 200px;
   height: 100%;
-  background: #373737;
+  
   padding: 30px 0px;
   position: fixed;
 }
+
 
 .wrapper .sidebar h2{
   color: #fff;

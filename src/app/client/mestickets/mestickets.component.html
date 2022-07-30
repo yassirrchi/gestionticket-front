@@ -1,8 +1,9 @@
+
 <div class="safe-width">
     <table class="table">
         <thead>
             <tr>
-                <th>ID</th><th>Sujet</th><th>Date de creation</th><th>STATUS</th><th>Lance par</th><th>Priorite</th> 
+                <th>ID</th><th>Sujet</th><th>Date de creation</th><th>STATUS</th> 
             </tr>
         </thead>
         <tbody> 
@@ -11,7 +12,7 @@
                  
                 
                 <td>{{ticket.id}}</td>
-                <td>{{ticket.description}}</td>
+                <td>{{ticket.sujet}}</td>
                 <td>{{ticket.createdAt|date:' M/d/yy h:mm a'}}</td>
                 
                 <td *ngIf="ticket.status=='en cours'" class="bg-primary text-white">{{ticket.status}}</td>
@@ -19,16 +20,8 @@
                 <td *ngIf="ticket.status=='resolue'" class="bg-success text-white">{{ticket.status}}</td>
                 <td *ngIf="ticket.status=='non resolue'" class="bg-danger text-white">{{ticket.status}}</td>
 
-                <td>{{ticket.client.username}}</td>
-                <td *ngIf="ticket.priorite==1" class="bg-danger text-white">
-                    HIGH
-                </td>
-                <td *ngIf="ticket.priorite==2" class="bg-warning text-white">
-                    MEDIUM
-                </td>
-                <td *ngIf="ticket.priorite==3" class="bg-success text-white">
-                    LOW
-                </td>
+                 
+                 
                  
                
                 
@@ -38,11 +31,7 @@
                     details sur le ticket
                     </button>
                 </td>
-                <td>
-                    <button  class="btn btn-primary ">
-                    details sur le client
-                    </button>
-                </td>
+                 
                 <td>
                     <button  class="btn btn-danger" [disabled]="ticket.status=='en cours'">
                     <i class="bi bi-trash"></i>

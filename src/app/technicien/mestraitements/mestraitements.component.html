@@ -1,1 +1,61 @@
-<p>mestraitements works!</p>
+<div class="safe-width">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th><th>Technicien</th><th>Id de ticket</th><th>STATUS</th><th>Date de creation</th><th>choisir un etat</th><th>choisir un etat</th>
+            </tr>
+        </thead>
+        <tbody> 
+            <tr *ngFor="let traitement of mestraitements  ">
+                
+                <td>{{traitement.id}}</td>
+                <td>{{traitement.technicien.username}}</td>
+                <td>{{traitement.ticketId}}</td>
+                 <td *ngIf="traitement.status=='resolue'" class="bg-success text-white">{{traitement.status}}</td>
+                <td *ngIf="traitement.status=='non resolue'" class="bg-danger text-white">{{traitement.status}}</td>
+                <td *ngIf="traitement.status=='en cours'" class="bg-primary text-white">{{traitement.status}}</td>
+                
+                
+                
+                <td>{{traitement.createdAt|date:' M/d/yy h:mm a'}}</td>
+                 
+                 
+                <td>
+                    <select [disabled]="traitement.edited"   id="etat" name="etat" [(ngModel)]="selectedEtat" required>
+                        <option value="" selected disabled  hidden>Choose here</option>
+                        <option value="resolue" >résolue </option>
+                        <option value="non resolue" >non résolue </option>
+                         
+                      </select>
+                       
+                </td>
+               
+                
+                <td>
+                    <button [disabled]="traitement.edited"  class="btn btn-secondary text-white" type="submit" (click)="editTraitementState(traitement.id)"   >
+                    confirmer l'etat final
+                    </button>
+                </td>
+                <td>
+                    <button  class="btn btn-primary ">
+                    details sur le ticket
+                    </button>
+                </td>
+                <td>
+                    <button  class="btn btn-primary ">
+                    details sur le Technicien
+                    </button>
+                </td>
+                <td>
+                    <button  class="btn btn-danger"  >
+                    <i class="bi bi-trash"></i>
+                    </button>
+                </td>
+
+             
+
+            </tr>
+        </tbody>
+        </table>
+    </div>
+ 

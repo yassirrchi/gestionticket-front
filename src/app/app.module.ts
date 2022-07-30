@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { MesticketsComponent } from './client/mestickets/mestickets.component';
 import { CreerticketComponent } from './client/creerticket/creerticket.component';
 import { TicketsComponent } from './admin/tickets/tickets.component';
@@ -19,12 +17,11 @@ import { LoginComponent } from './client/login/login.component';
 import { LoginTechnicienComponent } from './technicien/login-technicien/login-technicien.component';
 import { SignupComponent } from './client/signup/signup.component';
 import { LoginAdminComponent } from './admin/login-admin/login-admin.component';
-
+ 
 
 @NgModule({
   declarations: [
     AppComponent,
-    
     MesticketsComponent,
     CreerticketComponent,
     TicketsComponent,
@@ -38,6 +35,7 @@ import { LoginAdminComponent } from './admin/login-admin/login-admin.component';
     LoginTechnicienComponent,
     SignupComponent,
     LoginAdminComponent
+    
   ],
   imports: [
     BrowserModule,
