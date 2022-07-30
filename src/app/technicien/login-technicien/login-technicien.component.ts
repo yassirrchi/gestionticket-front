@@ -12,7 +12,8 @@ export class LoginTechnicienComponent implements OnInit {
 
   AdminForm=new FormGroup({
     username:new FormControl(''),
-    password:new FormControl('')
+    password:new FormControl(''),
+    role:new FormControl('TECHNICIEN')
   })
 
   constructor(private authService:AuthService,private router:Router) { }
@@ -24,7 +25,7 @@ export class LoginTechnicienComponent implements OnInit {
   onsubmit(){
      
 
-    this.authService.TechnicienLogin(this.AdminForm.controls['username'].value,this.AdminForm.controls['password'].value).subscribe((data)=>{
+    this.authService.UserLogin(this.AdminForm.controls['username'].value,this.AdminForm.controls['password'].value,this.AdminForm.controls['role'].value).subscribe((data)=>{
        
         
        this.setSessionData(data.username,data.id,data.role)

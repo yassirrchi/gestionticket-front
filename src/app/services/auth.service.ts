@@ -8,20 +8,10 @@ import { Client } from '../model/Client.model';
 export class AuthService {
 
   constructor(private http:HttpClient) { }
-
-  clientLogin(username:String,password:String):Observable<any>{
-    const data={username,password}
-    return this.http.post<any>("http://localhost:4443/client/login",data)
-
-  }
-  AdminLogin(username:String,password:String):Observable<any>{
-    const data={username,password}
-    return this.http.post<any>("http://localhost:4443/admin/login",data)
-
-  }
-  TechnicienLogin(username:String,password:String):Observable<any>{
-    const data={username,password}
-    return this.http.post<any>("http://localhost:4443/technicien/login",data)
+  
+  UserLogin(username:String,password:String,role:String):Observable<any>{
+    const data={username,password,role}
+    return this.http.post<any>("http://localhost:4443/user/login",data)
 
   }
 

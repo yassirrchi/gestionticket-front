@@ -11,7 +11,9 @@ declare let alertify:any;
 export class LoginComponent implements OnInit {
   ClientForm=new FormGroup({
     username:new FormControl(''),
-    password:new FormControl('')
+    password:new FormControl(''),
+    role:new FormControl('CLIENT')
+
   })
 
   constructor(private authService:AuthService,private router:Router) { }
@@ -22,7 +24,7 @@ export class LoginComponent implements OnInit {
   onsubmit(){
      
 
-    this.authService.clientLogin(this.ClientForm.controls['username'].value,this.ClientForm.controls['password'].value).subscribe((data)=>{
+    this.authService.UserLogin(this.ClientForm.controls['username'].value,this.ClientForm.controls['password'].value,this.ClientForm.controls['role'].value).subscribe((data)=>{
        
        console.log(data) 
        this.setSessionData(data.username,data.id,data.role)

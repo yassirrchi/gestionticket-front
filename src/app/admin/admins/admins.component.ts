@@ -11,7 +11,10 @@ export class AdminsComponent implements OnInit {
   adminId!:any;
   createUserForm=new FormGroup({
     username:new FormControl(''),
-    password:new FormControl('')
+    password:new FormControl(''),
+    role:new FormControl('ADMIN')
+    
+    
   })
   
 
@@ -23,7 +26,7 @@ export class AdminsComponent implements OnInit {
     
   }
   onsubmit():void{
-    this.usersService.createAdmin(this.createUserForm.controls['username'].value,this.createUserForm.controls['password'].value).subscribe((data)=>{
+    this.usersService.createUser(this.createUserForm.controls['username'].value,this.createUserForm.controls['password'].value,this.createUserForm.controls['role'].value).subscribe((data)=>{
        this.createUserForm.reset();
 
       this.getAdmins()
@@ -41,6 +44,17 @@ export class AdminsComponent implements OnInit {
       }
      )
 
+
+  }
+  deleteUser(id:string,role:string){
+    this.usersService.deleteUser(id,role).subscribe(
+      (res)=>{
+        this.getAdmins();
+         
+         
+      }
+     )
+  
 
   }
    

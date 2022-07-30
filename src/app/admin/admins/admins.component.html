@@ -1,6 +1,6 @@
 <div  class="safe-width">
     
-    <form [formGroup]="createUserForm" (ngSubmit)="onsubmit()"><div class="d-flex justify-content-center"><input placeholder="username" formControlName="username" class="mx-2"/> <input placeholder="password" formControlName="password" class="mx-2"/><button class="btn btn-success">creer</button></div>
+    <form [formGroup]="createUserForm" (ngSubmit)="onsubmit()"><div class="d-flex justify-content-center"><input placeholder="username" formControlName="username" class="mx-2" required/> <input placeholder="password" formControlName="password" class="mx-2" required/><button class="btn btn-success">creer</button></div>
 </form>
      
     
@@ -21,7 +21,7 @@
                 <td>{{client.username}}<span *ngIf="client.id==adminId"> (vous)</span></td>
                 <td>{{client.createdAt|date:' M/d/yy h:mm a'}}</td> 
                 <td>
-                    <button  class="btn btn-danger " [disabled]="client.id==adminId">
+                    <button  class="btn btn-danger " [disabled]="client.id==adminId" (click)="deleteUser(client.id,'ADMIN')">
                         <i class="bi bi-x-lg"></i>
                     </button>
                 

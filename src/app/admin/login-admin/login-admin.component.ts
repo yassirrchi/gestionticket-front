@@ -11,7 +11,8 @@ declare let alertify:any;
 export class LoginAdminComponent implements OnInit {
   AdminForm=new FormGroup({
     username:new FormControl(''),
-    password:new FormControl('')
+    password:new FormControl(''),
+    role:new FormControl('ADMIN')
   })
 
   constructor(private authService:AuthService,private router:Router) { }
@@ -23,7 +24,7 @@ export class LoginAdminComponent implements OnInit {
   onsubmit(){
      
 
-    this.authService.AdminLogin(this.AdminForm.controls['username'].value,this.AdminForm.controls['password'].value).subscribe((data)=>{
+    this.authService.UserLogin(this.AdminForm.controls['username'].value,this.AdminForm.controls['password'].value,this.AdminForm.controls['role'].value).subscribe((data)=>{
        
        console.log(data) 
        this.setSessionData(data.username,data.id,data.role)
