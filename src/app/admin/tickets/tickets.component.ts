@@ -15,7 +15,7 @@ import { TraitementService } from 'src/app/services/traitement.service';
 export class TicketsComponent implements OnInit {
   allTickets!: Ticket[];
   techniciens!:Technicien[];
-  seletedTechnicien!:Number;
+  seletedTechnicien!:any[];
  
   constructor(private ticketService:TicketService ,private router:Router,private techniciensServices:TechnicienService ,private traitementService:TraitementService) { }
 
@@ -39,15 +39,25 @@ export class TicketsComponent implements OnInit {
     this.ticketService.getAllTickets().subscribe(
       (res)=>{
         this.allTickets=res;
+        this.seletedTechnicien=[]
+        this.allTickets.map(ticket=>{
+          console.log("pl")
+          this.seletedTechnicien[ticket.id]=""
+           
+        })
+        console.log(this.seletedTechnicien)
         console.log(this.allTickets)
       }
      )
 
   }
 
-  creerTraitement(TicketId:Number):void{
+  creerTraitement(TicketId:number):void{
+     
+
     
-    this.traitementService.CreateTraitement(TicketId,this.seletedTechnicien).subscribe((data)=>{
+    
+    this.traitementService.CreateTraitement(TicketId,this.seletedTechnicien[TicketId]).subscribe((data)=>{
       console.log(data)
       this.getAllTickets();
       
@@ -55,6 +65,6 @@ export class TicketsComponent implements OnInit {
 
 this.router.navigateByUrl("/admin/tickets")
 
-  }
-
+  
+}
 }

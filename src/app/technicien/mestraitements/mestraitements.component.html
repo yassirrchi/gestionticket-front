@@ -1,4 +1,5 @@
 <div class="safe-width">
+    
     <table class="table">
         <thead>
             <tr>
@@ -7,6 +8,8 @@
         </thead>
         <tbody> 
             <tr *ngFor="let traitement of mestraitements  ">
+                
+                 
                 
                 <td>{{traitement.id}}</td>
                 <td>{{traitement.technicien.username}}</td>
@@ -21,7 +24,7 @@
                  
                  
                 <td>
-                    <select [disabled]="traitement.edited"   id="etat" name="etat" [(ngModel)]="selectedEtat" required>
+                    <select [disabled]="traitement.edited"   id="etat" name="etat" [(ngModel)]="selectedEtat[traitement.id]" required>
                         <option value="" selected disabled  hidden>Choose here</option>
                         <option value="resolue" >résolue </option>
                         <option value="non resolue" >non résolue </option>
@@ -51,7 +54,7 @@
                     <i class="bi bi-trash"></i>
                     </button>
                 </td>
-
+ 
              
 
             </tr>

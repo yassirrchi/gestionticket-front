@@ -1,4 +1,4 @@
-<div  class="safe-width">
+<div  class="safe-width p-3">
     <table class="table">
         <thead>
             <tr>
@@ -30,17 +30,20 @@
                     LOW
                 </td>
                 <td>
-                    <select [disabled]="ticket.status!='non traite'" id="technicien" name="technicien" [(ngModel)]="seletedTechnicien"required>
+                    <select [disabled]="ticket.status!='non traite'"  [id]="ticket.id"  name="technicien" [(ngModel)]="seletedTechnicien[ticket.id]">
                         <option value="" selected disabled hidden>Choose here</option>
                         <option *ngFor="let technicien of techniciens" [value]="technicien.id">{{technicien.username}}</option>
                          
                       </select>
                        
                 </td>
+                <td>
+                     
+                </td>
                
                 
                 <td>
-                    <button  [disabled]="ticket.status!='non traite'" class="btn btn-secondary text-white" type="submit" (click)="creerTraitement(ticket.id)" >
+                    <button  [disabled]="ticket.status!='non traite' ||seletedTechnicien[ticket.id]=='' " class="btn btn-secondary text-white" type="submit" (click)="creerTraitement(ticket.id)" >
                     Assigner a un technicien
                     </button>
                 </td>
