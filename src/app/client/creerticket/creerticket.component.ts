@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
-import { TicketService } from 'src/app/services/ticket.service';
+ import { TicketService } from 'src/app/services/ticket.service';
 @Component({
   selector: 'app-creerticket',
   templateUrl: './creerticket.component.html',
