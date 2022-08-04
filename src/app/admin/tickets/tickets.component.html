@@ -58,7 +58,7 @@
                     </button>
                 </td>
                 <td>
-                    <button  class="btn btn-primary ">
+                    <button [disabled]="!ticket.hasFile"  class="btn btn-primary " (click)="downloadfile(ticket.id)">
                     download documents
                     </button>
                 </td>

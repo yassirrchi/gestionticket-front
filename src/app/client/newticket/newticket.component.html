@@ -7,7 +7,7 @@
           <div class="col-md-6">
             <label  for="raison" class="form-label">Raison</label>
             
-           <select id="raison" class="form-control" formControlName="raison" required>
+           <select id="raison" class="form-control" formControlName="sujet" required>
             <option>Problem d'access</option>
             <option>Problem technique</option>
             <option>demande de donnees d'access</option>
@@ -17,11 +17,16 @@
            
           <div class="col-md-12">
             <label for="comments" class="form-label">Message</label>
-            <textarea class="form-control" id="comments" rows="3" formControlName="message" required></textarea>
+            <textarea class="form-control" id="comments" rows="3" formControlName="description" required></textarea>
           </div>
           <div class="col-md-12">
             <label for="comments" class="form-label">Images</label>
            <input type="file" class="form-control" multiple   (change)="onFileSelected($event)"/>
+          </div>
+          <div class="col-md-12" *ngIf="progress!=0">
+            <label for="comments" class="form-label">Progress {{progress}} %</label>
+            <progress [value]="progress" max="100"> </progress>
+           
           </div>
           <div class="col-md-12">
             <button type="submit" class="btn btn-success mt-1">Lancer</button>

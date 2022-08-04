@@ -9,4 +9,5 @@ export interface Ticket {
     edited:      boolean;
     priorite:    number;
     createdBy:   string;
+    hasFile:boolean;
 }

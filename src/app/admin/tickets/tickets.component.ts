@@ -6,7 +6,7 @@ import { Ticket } from 'src/app/model/Ticket.model';
 import { TechnicienService } from 'src/app/services/technicien.service';
 import { TicketService } from 'src/app/services/ticket.service';
 import { TraitementService } from 'src/app/services/traitement.service';
-
+import { FilesService } from 'src/app/services/files.service';
 @Component({
   selector: 'app-tickets',
   templateUrl: './tickets.component.html',
@@ -17,7 +17,7 @@ export class TicketsComponent implements OnInit {
   techniciens!:Technicien[];
   seletedTechnicien!:any[];
  
-  constructor(private ticketService:TicketService ,private router:Router,private techniciensServices:TechnicienService ,private traitementService:TraitementService) { }
+  constructor(private ticketService:TicketService,private fileServices :FilesService ,private router:Router,private techniciensServices:TechnicienService ,private traitementService:TraitementService) { }
 
   ngOnInit(): void {
 
@@ -65,6 +65,15 @@ export class TicketsComponent implements OnInit {
 
 this.router.navigateByUrl("/admin/tickets")
 
+  
+}
+
+downloadfile(ticketid:number){
+  this.fileServices.downloadFile(ticketid).subscribe((res)=>{
+    alert("ok")
+  })
+}
+progress(){
   
 }
 }
