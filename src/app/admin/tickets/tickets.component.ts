@@ -7,6 +7,8 @@ import { TechnicienService } from 'src/app/services/technicien.service';
 import { TicketService } from 'src/app/services/ticket.service';
 import { TraitementService } from 'src/app/services/traitement.service';
 import { FilesService } from 'src/app/services/files.service';
+import { HttpEventType } from '@angular/common/http';
+import { saveAs } from 'file-saver';
 @Component({
   selector: 'app-tickets',
   templateUrl: './tickets.component.html',
@@ -69,8 +71,21 @@ this.router.navigateByUrl("/admin/tickets")
 }
 
 downloadfile(ticketid:number){
-  this.fileServices.downloadFile(ticketid).subscribe((res)=>{
-    alert("ok")
+  this.fileServices.downloadFile(ticketid).subscribe(event=>{
+    if((event.type==HttpEventType.DownloadProgress)&&event.total!=null){
+     // alert(event.loaded/event.total)
+    }
+    else if(event.type==HttpEventType.Response){
+      saveAs(new File([event.body!],"ticket#"+ticketid+" doc",{
+       type:`${event.headers.get('Content-Type')};charset=utf-8` 
+      }
+       ));
+
+    }
+    
+
+
+    //alert("ok")
   })
 }
 progress(){
