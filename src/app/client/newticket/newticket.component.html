@@ -1,6 +1,6 @@
 
  <form [formGroup]="ticketForm" (ngSubmit)="onsubmit()" enctype="multipart/form-data" class="safe-width">
-    <div class="container mt-5 p-3 bg-primary">
+    <div class="container   p-3 bg-primary text-light">
      
         <h1>Lancer un nouveau ticket!</h1>
         <div class="row g-3">
@@ -21,7 +21,7 @@
           </div>
           <div class="col-md-12">
             <label for="comments" class="form-label">Images</label>
-           <input type="file" class="form-control" multiple   (change)="onFileSelected($event)"/>
+           <input type="file" class="form-control p-4 fileupload"     (change)="onFileSelected($event)"/>
           </div>
           <div class="col-md-12" *ngIf="progress!=0">
             <label for="comments" class="form-label">Progress {{progress}} %</label>

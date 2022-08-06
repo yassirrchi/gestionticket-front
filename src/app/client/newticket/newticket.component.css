@@ -1,0 +1,11 @@
+.container{
+    border-radius: 10px;
+}
+#fileinput{
+    display: none;
+}
+.fileupload{
+    width: 100%;
+    background-color: rgb(19, 141, 255);
+
+}
