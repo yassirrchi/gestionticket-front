@@ -1,19 +1,21 @@
-<div class="safe-width">
-    <table class="table">
-        <thead>
+<div class="safe-width ">
+    <table class="table  bg-light text-center">
+        <thead class="bg-dark text-light">
             <tr>
-                <th>ID</th><th>Technicien</th><th>Id de ticket</th><th>STATUS</th><th>Date de creation</th><th>choisir un etat</th> 
+                <th>ID</th><th><i class="bi bi-person-fill"></i><i class="bi bi-gear-wide"></i></th> <th><i class="bi bi-lightbulb-fill"></i></th><th>Date de creation</th> <th></th><th></th> 
             </tr>
         </thead>
-        <tbody> 
+        <tbody class="text-dark"> 
             <tr *ngFor="let traitement of allTraitements  ">
                 
                 <td>#{{traitement.id}}</td>
                 <td>{{traitement.technicien.username}}</td>
-                <td>{{traitement.ticketId}}</td>
-                 <td *ngIf="traitement.status=='resolue'" class="bg-success text-white">{{traitement.status}}</td>
-                <td *ngIf="traitement.status=='non resolue'" class="bg-danger text-white">{{traitement.status}}</td>
-                <td *ngIf="traitement.status=='en cours'" class="bg-primary text-white">{{traitement.status}}</td>
+                   
+
+                <td *ngIf="traitement.status=='en cours'"  > <span class="badge   bg-primary">{{traitement.status}}</span></td>
+                 
+                <td *ngIf="traitement.status=='resolue'" ><span class="badge   bg-success">{{traitement.status}}</span></td>
+                <td *ngIf="traitement.status=='non resolue'" ><span class="badge   bg-danger">{{traitement.status}}</span></td>
                 
                 
                 
@@ -24,14 +26,10 @@
                
                 
                  
+                 
                 <td>
                     <button  class="btn btn-primary ">
-                    details sur le ticket
-                    </button>
-                </td>
-                <td>
-                    <button  class="btn btn-primary ">
-                    details sur le Technicien
+                    <i class="bi bi-stickies-fill"> </i>  #{{traitement.ticketId}}
                     </button>
                 </td>
                 <td>

@@ -5,11 +5,11 @@
         <div class="sidebar"  [ngClass]="{'client-side-bar':userRole=='CLIENT', 'tehnicien-side-bar': userRole=='TECHNICIEN', 'admin-side-bar':userRole=='ADMIN'}"  >
             <h2>{{userName}}</h2>
             <ul *ngIf="userRole=='ADMIN'">
-                <a href="#"routerLink="admin/tickets"><li><i class="fas fa-home" ></i>Tickets</li></a>
-                <a href="#"routerLink="admin/traitements"><li><i class="fas fa-home" ></i>Traitements</li></a>
-                <a href="#"routerLink="admin/admins"><li><i class="fas fa-home" ></i>Admins</li></a>
-                <a href="#"routerLink="admin/techniciens"><li><i class="fas fa-home" ></i>Techniciens</li></a>
-                <a href="#"routerLink="admin/clients"><li><i class="fas fa-home" ></i>Clients</li></a>
+                <a href="#"routerLink="admin/tickets"><li><i class="fas fa-home" ></i><i class="bi bi-stickies-fill"></i> Tickets</li></a>
+                <a href="#"routerLink="admin/traitements"><li><i class="fas fa-home" ></i> <i class="bi bi-filter-square"></i> Traitements</li></a>
+                <a href="#"routerLink="admin/admins"><li><i class="fas fa-home" ></i> <i class="bi bi-person-lines-fill"></i> Admins</li></a>
+                <a href="#"routerLink="admin/techniciens"><li><i class="fas fa-home" ></i> <i class="bi bi-person-lines-fill"></i> Techniciens</li></a>
+                <a href="#"routerLink="admin/clients"><li><i class="fas fa-home" ></i><i class="bi bi-person-lines-fill"></i> Clients</li></a>
                 
                  
                  

@@ -55,7 +55,7 @@
                 </td>
                 <td class="bg-dark">
                     <select [disabled]="ticket.status!='non traite'"  [id]="ticket.id"  name="technicien" [(ngModel)]="seletedTechnicien[ticket.id]">
-                        <option value="" selected disabled hidden>Choose here</option>
+                        <option value="" selected disabled hidden>choisit un technicien</option>
                         <option *ngFor="let technicien of techniciens" [value]="technicien.id">{{technicien.username}}</option>
                          
                       </select>
@@ -65,8 +65,9 @@
                
                 
                 <td class="bg-dark">
-                    <button  [disabled]="ticket.status!='non traite' ||seletedTechnicien[ticket.id]=='' " class="btn btn-success text-white" type="submit" (click)="creerTraitement(ticket.id)" >
-                        <i class="bi bi-send"></i>
+                    <button  [disabled]="ticket.status!='non traite' ||seletedTechnicien[ticket.id]=='' " class="text-white" [ngClass]="ticket.status!='non traite' ||seletedTechnicien[ticket.id]==''?'btn btn-outline-primary ':'btn bg-success'" type="submit" (click)="creerTraitement(ticket.id)" >
+                        <i class="bi bi-send"  *ngIf="!(ticket.status!='non traite' &&seletedTechnicien[ticket.id]=='')" ></i>
+                        <i class="bi bi-send-check text-light" *ngIf="ticket.status!='non traite' &&seletedTechnicien[ticket.id]==''" ></i>
                     </button>
                 </td>
              
