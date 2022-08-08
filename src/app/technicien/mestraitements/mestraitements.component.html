@@ -1,29 +1,41 @@
-<div class="safe-width">
+<div class="safe-width text-center">
     
     <table class="table">
-        <thead>
+        <thead class="bg-success text-light ">
             <tr>
-                <th>ID</th><th>Technicien</th><th>Id de ticket</th><th>STATUS</th><th>Date de creation</th><th>choisir un etat</th><th>choisir un etat</th>
+                <th>ID</th><th><i class="bi bi-person-fill"></i><i class="bi bi-gear"></i></th> <th><i class="bi bi-lightbulb-fill"></i></th><th>Date de creation</th><th><i class="bi bi-info-circle"></i></th><th><i class="bi bi-lightbulb-fill"></i></th> <th></th><th></th>
             </tr>
         </thead>
-        <tbody> 
+        <tbody class="bg-light"> 
             <tr *ngFor="let traitement of mestraitements  ">
                 
                  
                 
                 <td>{{traitement.id}}</td>
                 <td>{{traitement.technicien.username}}</td>
-                <td>{{traitement.ticketId}}</td>
-                 <td *ngIf="traitement.status=='resolue'" class="bg-success text-white">{{traitement.status}}</td>
-                <td *ngIf="traitement.status=='non resolue'" class="bg-danger text-white">{{traitement.status}}</td>
-                <td *ngIf="traitement.status=='en cours'" class="bg-primary text-white">{{traitement.status}}</td>
+                 <td *ngIf="traitement.status=='en cours'"  > <span class="badge   bg-primary">{{traitement.status}}</span></td>
+                 
+                <td *ngIf="traitement.status=='resolue'" ><span class="badge   bg-success">{{traitement.status}}</span></td>
+                <td *ngIf="traitement.status=='non resolue'" ><span class="badge   bg-danger">{{traitement.status}}</span></td>
                 
                 
                 
                 <td>{{traitement.createdAt|date:' M/d/yy h:mm a'}}</td>
                  
                  
+              
                 <td>
+                    <button  class="btn btn-primary ">
+                        <i class="bi bi-stickies-fill"></i> #{{traitement.ticketId}}
+                    </button>
+                </td>
+                
+                <td>
+                    <button  class="btn btn-danger"  >
+                    <i class="bi bi-trash"></i>
+                    </button>
+                </td>
+                <td class="bg-success">
                     <select [disabled]="traitement.edited"   id="etat" name="etat" [(ngModel)]="selectedEtat[traitement.id]" required>
                         <option value="" selected disabled  hidden>Choose here</option>
                         <option value="resolue" >résolue </option>
@@ -34,24 +46,14 @@
                 </td>
                
                 
-                <td>
-                    <button [disabled]="traitement.edited"  class="btn btn-secondary text-white" type="submit" (click)="editTraitementState(traitement.id)"   >
-                    confirmer l'etat final
-                    </button>
-                </td>
-                <td>
-                    <button  class="btn btn-primary ">
-                    details sur le ticket
-                    </button>
-                </td>
-                <td>
-                    <button  class="btn btn-primary ">
-                    details sur le Technicien
-                    </button>
-                </td>
-                <td>
-                    <button  class="btn btn-danger"  >
-                    <i class="bi bi-trash"></i>
+                <td class="bg-success">
+                    <button [ngClass]="{'bg-success': selectedEtat[traitement.id]!=''}" [ngClass]="{'bg-success text-light': traitement.edited}" [ngClass]="{'bg-danger': selectedEtat[traitement.id]=='non resolue'}" [disabled]="traitement.edited"  class="btn btn-success btn-outline-light " type="submit" (click)="editTraitementState(traitement.id)"   >
+                        <i class="bi bi-check-circle"  *ngIf="selectedEtat[traitement.id]==''&&!traitement.edited" ></i>
+                        <i class="bi bi-check-circle-fill" *ngIf="selectedEtat[traitement.id]!=''&&selectedEtat[traitement.id]!='non resolue'"></i>
+                        <i class="bi bi-check-lg" *ngIf="traitement.edited&&traitement.status!='non resolue'" ></i>
+                        <i class="bi bi-dash-circle-fill " *ngIf="selectedEtat[traitement.id]=='non resolue'"></i>
+                        <i class="bi bi-dash-circle " *ngIf="traitement.status=='non resolue'&&traitement.edited"></i>
+
                     </button>
                 </td>
  
