@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { tick } from '@angular/core/testing';
+import { Router } from '@angular/router';
 import { Ticket } from 'src/app/model/Ticket.model';
 import { TicketService } from 'src/app/services/ticket.service';
 
@@ -11,7 +13,7 @@ export class MesticketsComponent implements OnInit {
   mesTicket!:Ticket[];
   userId!:string|null;
 
-  constructor(private ticketService:TicketService) { }
+  constructor(private ticketService:TicketService,private route:Router) { }
 
   ngOnInit(): void {
      
@@ -23,8 +25,14 @@ export class MesticketsComponent implements OnInit {
     }
    )
 
-   //this.ticketService.getUserTicket(sessionStorage.getItem('userId'))
+   
 
+   }
+
+   //this.ticketService.getUserTicket(sessionStorage.getItem('userId'))
+ticketDetail(ticketId:number){
+  this.route.navigateByUrl("client/tickets/"+ticketId);
+  
 
   }
 

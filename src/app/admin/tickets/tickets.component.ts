@@ -19,7 +19,7 @@ export class TicketsComponent implements OnInit {
   techniciens!:Technicien[];
   seletedTechnicien!:any[];
  
-  constructor(private ticketService:TicketService,private fileServices :FilesService ,private router:Router,private techniciensServices:TechnicienService ,private traitementService:TraitementService) { }
+  constructor(private ticketService:TicketService,private route:Router,private fileServices :FilesService ,private router:Router,private techniciensServices:TechnicienService ,private traitementService:TraitementService) { }
 
   ngOnInit(): void {
 
@@ -91,4 +91,9 @@ downloadfile(ticketid:number){
 progress(){
   
 }
+ticketDetail(ticketId:number){
+  this.route.navigateByUrl("admin/tickets/"+ticketId);
+  
+
+  }
 }

@@ -5,18 +5,18 @@
         <div class="sidebar"  [ngClass]="{'bg-primary':userRole=='CLIENT', 'bg-success': userRole=='TECHNICIEN', 'bg-dark':userRole=='ADMIN'}"  >
             <h2>{{userName}}</h2>
             <ul *ngIf="userRole=='ADMIN'">
-                <a href="#"routerLink="admin/tickets"><li><i class="fas fa-home" ></i><i class="bi bi-stickies-fill"></i> Tickets</li></a>
-                <a href="#"routerLink="admin/traitements"><li><i class="fas fa-home" ></i> <i class="bi bi-filter-square"></i> Traitements</li></a>
-                <a href="#"routerLink="admin/admins"><li><i class="fas fa-home" ></i> <i class="bi bi-person-lines-fill"></i> Admins</li></a>
-                <a href="#"routerLink="admin/techniciens"><li><i class="fas fa-home" ></i> <i class="bi bi-person-lines-fill"></i> Techniciens</li></a>
-                <a href="#"routerLink="admin/clients"><li><i class="fas fa-home" ></i><i class="bi bi-person-lines-fill"></i> Clients</li></a>
+                <a href="#"routerLink="../../admin/tickets"><li><i class="fas fa-home" ></i><i class="bi bi-stickies-fill"></i> Tickets</li></a>
+                <a href="#"routerLink="../../admin/traitements"><li><i class="fas fa-home" ></i> <i class="bi bi-filter-square"></i> Traitements</li></a>
+                <a href="#"routerLink="../../admin/admins"><li><i class="fas fa-home" ></i> <i class="bi bi-person-lines-fill"></i> Admins</li></a>
+                <a href="#"routerLink="../../admin/techniciens"><li><i class="fas fa-home" ></i> <i class="bi bi-person-lines-fill"></i> Techniciens</li></a>
+                <a href="#"routerLink="../../admin/clients"><li><i class="fas fa-home" ></i><i class="bi bi-person-lines-fill"></i> Clients</li></a>
                 
                  
                  
             </ul>
             <ul *ngIf="userRole=='CLIENT'">
-                <li><a href="#" routerLink="client/tickets"><i class="fas fa-home" ></i>Mes tickets</a></li>
-                <li><a href="#" routerLink="client/newticket"><i class="fas fa-user" ></i>Lancer un ticket</a></li>
+                <li><a href="#" routerLink="../../client/tickets"><i class="fas fa-home" ></i>Mes tickets</a></li>
+                <li><a href="#" routerLink="../../client/newticket"><i class="fas fa-user" ></i>Lancer un ticket</a></li>
                  
             </ul>  
             <ul *ngIf="userRole=='TECHNICIEN'">

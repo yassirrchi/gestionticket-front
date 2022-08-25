@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div  class="safe-width text-center ">
     <table class="table text-dark bg-light">
         <thead class="bg-dark text-light ">
@@ -38,7 +39,7 @@
                 </td>
                
                 <td>
-                    <button  class="btn btn-primary ">
+                    <button  class="btn btn-primary " (click)="ticketDetail(ticket.id)">
                         <i class="bi bi-info-square"></i>
                     </button>
                 </td>

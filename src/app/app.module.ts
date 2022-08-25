@@ -18,6 +18,7 @@ import { LoginTechnicienComponent } from './technicien/login-technicien/login-te
 import { SignupComponent } from './client/signup/signup.component';
 import { LoginAdminComponent } from './admin/login-admin/login-admin.component';
 import { NewticketComponent } from './client/newticket/newticket.component';
+import { DetailsComponent } from './shared/details/details.component';
  
 
 @NgModule({
@@ -36,7 +37,8 @@ import { NewticketComponent } from './client/newticket/newticket.component';
     LoginTechnicienComponent,
     SignupComponent,
     LoginAdminComponent,
-    NewticketComponent
+    NewticketComponent,
+    DetailsComponent
     
   ],
   imports: [

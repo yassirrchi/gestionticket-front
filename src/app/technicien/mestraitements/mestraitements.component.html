@@ -1,9 +1,10 @@
+<app-navbar></app-navbar>
 <div class="safe-width text-center">
     
     <table class="table">
         <thead class="bg-success text-light ">
             <tr>
-                <th>ID</th><th><i class="bi bi-person-fill"></i><i class="bi bi-gear"></i></th> <th><i class="bi bi-lightbulb-fill"></i></th><th>Date de creation</th><th><i class="bi bi-info-circle"></i></th><th><i class="bi bi-lightbulb-fill"></i></th> <th></th><th></th>
+                <th>ID</th><th><i class="bi bi-person-fill"></i><i class="bi bi-gear"></i></th> <th><i class="bi bi-lightbulb-fill"></i></th><th>Date de creation</th><th><i class="bi bi-info-circle"></i></th><th></th><th><i class="bi bi-lightbulb-fill"></i></th> <th></th><th></th>
             </tr>
         </thead>
         <tbody class="bg-light"> 
@@ -29,6 +30,12 @@
                         <i class="bi bi-stickies-fill"></i> #{{traitement.ticketId}}
                     </button>
                 </td>
+                <td>
+                    <button   class="btn btn-success "   (click)="downloadfile(traitement.ticketId)">
+                        <i class="bi bi-arrow-down-circle"></i>
+                    </button>
+                    
+                </td>
                 
                 <td>
                     <button  class="btn btn-danger"  >
@@ -44,10 +51,11 @@
                       </select>
                        
                 </td>
+                
                
                 
                 <td class="bg-success">
-                    <button [ngClass]="{'bg-success': selectedEtat[traitement.id]!=''}" [ngClass]="{'bg-success text-light': traitement.edited}" [ngClass]="{'bg-danger': selectedEtat[traitement.id]=='non resolue'}" [disabled]="traitement.edited"  class="btn btn-success btn-outline-light " type="submit" (click)="editTraitementState(traitement.id)"   >
+                    <button [ngClass]="{'bg-success': selectedEtat[traitement.id]!=''}" [ngClass]="{'bg-success text-light': traitement.edited}" [ngClass]="{'bg-danger': selectedEtat[traitement.id]=='non resolue'}" [disabled]="traitement.edited||selectedEtat[traitement.id]==''"  class="btn btn-success btn-outline-light " type="submit" (click)="editTraitementState(traitement.id)"   >
                         <i class="bi bi-check-circle"  *ngIf="selectedEtat[traitement.id]==''&&!traitement.edited" ></i>
                         <i class="bi bi-check-circle-fill" *ngIf="selectedEtat[traitement.id]!=''&&selectedEtat[traitement.id]!='non resolue'"></i>
                         <i class="bi bi-check-lg" *ngIf="traitement.edited&&traitement.status!='non resolue'" ></i>

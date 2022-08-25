@@ -1,0 +1,36 @@
+<app-navbar></app-navbar>
+<div class="safe-width">
+    <div class="bg-light tab">
+        <table><tr><td><h4><i class="bi bi-stickies-fill"></i> Ticket#{{ticket.id}}</h4></td></tr>
+            <tr>
+                <td>Raison:</td>
+                <td class="raison">{{ticket.sujet}}</td>
+            </tr>
+            <tr>
+                <td>Message:</td>
+            </tr>
+            <tr>
+                 
+                <td ><textarea [disabled]="true" [value]="ticket.description"></textarea>  </td>
+            </tr>
+            <tr>
+                <td >Document:<span *ngIf="this.progress==1">{{this.progress*100}}%</span> </td>
+
+                <td><button [disabled]="!ticket.hasFile" [ngClass]="ticket.hasFile?'bg-success':'bg-secondary'" class=" text-light" (click)="downloadfile(ticket.id)"><i class="bi bi-arrow-down-circle"></i></button> </td>
+            </tr>
+        </table>
+        <table><tr><td><h4><i class="bi bi-person-fill"> </i>Client#{{ticket.client.id}} </h4></td></tr>
+            <tr>
+                <td>pseudo:</td>
+                <td>{{ticket.client.username}} </td>
+            </tr>
+             
+             
+        </table>
+
+
+        
+       
+    </div>
+    
+</div>

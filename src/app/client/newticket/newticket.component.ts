@@ -40,7 +40,7 @@ export class NewticketComponent implements OnInit {
     let fd=new FormData();
     fd.append('file',this.selectedFile)
     fd.append('sujet',this.ticketForm.controls['sujet'].value)
-    fd.append('description',this.ticketForm.controls['sujet'].value)
+    fd.append('description',this.ticketForm.controls['description'].value)
     if(this.clientid!=null)
     fd.append('clientid',this.clientid)
 

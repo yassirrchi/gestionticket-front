@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="safe-width ">
     <table class="table  bg-light text-center">
         <thead class="bg-dark text-light">
@@ -28,7 +29,7 @@
                  
                  
                 <td>
-                    <button  class="btn btn-primary ">
+                    <button  class="btn btn-primary " (click)="ticketDetail(traitement.ticketId)">
                     <i class="bi bi-stickies-fill"> </i>  #{{traitement.ticketId}}
                     </button>
                 </td>

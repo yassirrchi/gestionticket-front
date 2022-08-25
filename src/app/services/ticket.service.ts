@@ -23,6 +23,11 @@ export class TicketService {
     return this.http.get<Ticket[]>("http://localhost:4443/tickets/client/"+userId);
 
   }
+  public getTicketById(ticketId:number):Observable<Ticket>{
+    return this.http.get<Ticket>("http://localhost:4443/ticket/"+ticketId)
+
+  }
+
  
 
 }

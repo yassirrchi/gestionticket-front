@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 
  <form [formGroup]="ticketForm" (ngSubmit)="onsubmit()" enctype="multipart/form-data" class="safe-width">
     <div class="container   p-3 bg-primary text-light">
@@ -8,9 +9,12 @@
             <label  for="raison" class="form-label">Raison</label>
             
            <select id="raison" class="form-control" formControlName="sujet" required>
-            <option>Problem d'access</option>
-            <option>Problem technique</option>
-            <option>demande de donnees d'access</option>
+            <option>Demande dintervention/assistance</option>
+            <option>demander plus d'aide</option>
+            <option>demander d'une annulation</option>
+            <option>dates de prise en charge</option>
+            <option>periode de prise en charge</option>
+            <option>condition de prise en charge</option>
            </select>
            
            

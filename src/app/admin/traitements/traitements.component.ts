@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Traitement } from 'src/app/model/Traitement.model';
 import { TraitementService } from 'src/app/services/traitement.service';
 
@@ -11,7 +12,7 @@ export class TraitementsComponent implements OnInit {
   allTraitements!:Traitement[];
    
 
-  constructor(private traitementService :TraitementService) { }
+  constructor(private traitementService :TraitementService,private route:Router) { }
 
   ngOnInit(): void {
    this.getAllTraitements();
@@ -26,6 +27,11 @@ export class TraitementsComponent implements OnInit {
       }
      ) 
   }
+  ticketDetail(ticketId:number){
+    this.route.navigateByUrl("admin/tickets/"+ticketId);
+    
+  
+    }
     
 
 }
